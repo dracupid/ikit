@@ -1,7 +1,6 @@
-require('es6-promise').polyfill()
 require 'colors'
-
 core = require './core'
+promise = require './promise'
 
-module.exports = core
+module.exports = core.assign core, promise
 
