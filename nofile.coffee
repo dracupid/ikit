@@ -2,8 +2,18 @@ K = require './lib'
 coffee = require 'coffee-script'
 doc = require 'nodoc'
 
+IOLICENSE =
+    """
+    /**
+     * @license
+     * io.js https://github.com/iojs/io.js/blob/v1.x/LICENSE
+     */
+
+    """
+
 task 'iojs', 'Download libs of io.js', ->
     K.download 'https://raw.githubusercontent.com/iojs/io.js/v1.x/lib/path.js', './io/', processor: (data)->
+        data = IOLICENSE + data
         data.replace(/const/g, 'var')
 
 
