@@ -2,9 +2,10 @@
   "name": "particle",
   "version": "0.0.1",
   "description": "A wilful node toolkit.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "no"
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,9 @@
     "kit",
     "node"
   ],
+  "files": [
+    "dist"
+  ],
   "author": "Dracupid",
   "license": "MIT",
   "bugs": {
@@ -22,8 +26,12 @@
   },
   "homepage": "https://github.com/dracupid/particle",
   "dependencies": {
-    "coffee-script": "^1.9.0",
     "colors": "^1.0.3",
-    "es6-promise": "^2.0.1"
+    "es6-promise": "^2.0.1",
+    "lodash": "^3.0.1",
+    "nokit": "^0.4.5"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.9.0"
   }
 }

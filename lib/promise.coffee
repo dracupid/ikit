@@ -1,12 +1,11 @@
 require('es6-promise').polyfill()
-core = require './core'
 
 module.exports =
     promisify: (fn, self)->
         ()->
             args = Array::slice.call arguments
 
-            if core.isFunction args[args.length - 1]
+            if l_.isFunction args[args.length - 1]
                 return fn.apply self, args
 
             new Promise (resolve, reject)->
