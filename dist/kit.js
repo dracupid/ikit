@@ -8,6 +8,20 @@ isDir = function(path) {
   return path[path.length - 1] === '/';
 };
 
+
+/**
+ * Download file by url
+ * @param  {string} url   link url
+ * @param  {string} fpath file path to write data, directory should end with `/`
+ * @param  {Object} opts  options
+ * @return {Promise}
+ * @option processor process data before writing to file
+ * @example
+ * ```javascript
+ * download('http://zeptojs.com/zepto.js', './lib')
+ * ```
+ */
+
 download = function(url, fpath, opts) {
   var fileName;
   if (opts == null) {

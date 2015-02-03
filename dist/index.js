@@ -21,10 +21,10 @@ path = require('./path');
 url = nokit.url;
 
 module.exports = _.assign({}, kit, promise, {
-  kit: nokit,
-  fs: fs,
   colors: colors,
+  kit: nokit,
   path: path,
   url: url,
-  _: global.lodash
+  fs: fs,
+  _: l_
 });

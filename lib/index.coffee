@@ -1,5 +1,5 @@
 require 'colors'
-colors = require('colors/safe')
+colors = require 'colors/safe'
 global._ = global.l_ = global.lodash = require 'lodash'
 
 nokit = require 'nokit'
@@ -13,12 +13,12 @@ kit = require './kit'
 path = require './path'
 url = nokit.url
 
-
 module.exports = _.assign {}, kit, promise, {
-    kit: nokit
-    fs
     colors
+    kit: nokit
     path
     url
-    _: global.lodash
+
+    fs
+    _: l_
 }

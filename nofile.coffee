@@ -1,5 +1,6 @@
 K = require './lib'
 coffee = require 'coffee-script'
+doc = require 'nodoc'
 
 task 'iojs', 'Download libs of io.js', ->
     K.download 'https://raw.githubusercontent.com/iojs/io.js/v1.x/lib/path.js', './io/', processor: (data)->
@@ -15,4 +16,16 @@ task 'build', "Build Project", ->
     .pipe noCoffee bare: true
     .to 'dist'
 
-task 'default', ['build', 'iojs']
+task 'doc', "Generate api document", ->
+    fs.glob 'lib/**'
+    .then (fpaths)->
+        Promise.all fpaths.map (fpath)->
+            doc.render fpath, moduleName: ''
+        .then (resArr)->
+            resArr.join '\n'
+    .then (data)->
+        fs.readFile 'Readme.tpl'
+        .then (f1)->
+            fs.writeFile 'Readme.md',  _.template('' + f1)(api: data)
+
+task 'default', ['build', 'iojs', 'doc']

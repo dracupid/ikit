@@ -1,6 +1,12 @@
 require('es6-promise').polyfill()
 
 module.exports =
+    ###*
+     * promisify a function with callback
+     * @param  {Function} fn   Function
+     * @param  {Object}   self this object
+     * @return {Function}       promisified function
+    ###
     promisify: (fn, self)->
         ()->
             args = Array::slice.call arguments

@@ -4,7 +4,7 @@
   "description": "A wilful node toolkit.",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "no"
   },
   "repository": {
@@ -32,6 +32,7 @@
     "nokit": "^0.4.5"
   },
   "devDependencies": {
-    "coffee-script": "^1.9.0"
+    "coffee-script": "^1.9.0",
+    "nodoc": "^0.1.3"
   }
 }
