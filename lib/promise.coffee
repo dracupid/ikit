@@ -2,7 +2,7 @@ require('es6-promise').polyfill()
 ###*
  * es6 Promise Object
 ###
-Promise
+global.Promise
 
 module.exports =
     ###*

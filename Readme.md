@@ -64,7 +64,7 @@ A wilful node toolkit.
 
 
 
-- #### <a href="lib/promise.coffee?source#L5" target="_blank"><b>Promise</b></a>
+- #### <a href="lib/promise.coffee?source#L5" target="_blank"><b>global.Promise</b></a>
   es6 Promise Object
 
 - #### <a href="lib/promise.coffee?source#L14" target="_blank"><b>promisify</b></a>
