@@ -1,21 +1,28 @@
-Particle
+ikit
 =================
 
 A wilful node toolkit.
 
-- colors support
-- global
-    - Promise: es6-promise
-    - \_ or lodash or l_ : lodash
-    - fs: nofs
-- local
-    + colors: colors/safe
-    + kit: nokit
-    + path: io.js path lib
-    + url: io.js url lib
-
 ##API
 
+
+- #### <a href="lib/index.coffee?source#L7" target="_blank"><b>global.\_ (alias: l_, lodash ) </b></a>
+  lodash
+
+- #### <a href="lib/index.coffee?source#L14" target="_blank"><b>global.fs</b></a>
+  [nofs](https://github.com/ysmood/nofs)
+
+- #### <a href="lib/index.coffee?source#L27" target="_blank"><b>colors</b></a>
+  colors/safe
+
+- #### <a href="lib/index.coffee?source#L31" target="_blank"><b>kit</b></a>
+  [nokit](https://github.com/ysmood/nokit)
+
+- #### <a href="lib/index.coffee?source#L35" target="_blank"><b>path</b></a>
+  io.js path lib
+
+- #### <a href="lib/index.coffee?source#L39" target="_blank"><b>url</b></a>
+  io.js url lib
 
 
 
@@ -53,7 +60,10 @@ A wilful node toolkit.
 
 
 
-- #### <a href="lib/promise.coffee?source#L10" target="_blank"><b>promisify</b></a>
+- #### <a href="lib/promise.coffee?source#L5" target="_blank"><b>Promise</b></a>
+  es6 Promise Object
+
+- #### <a href="lib/promise.coffee?source#L14" target="_blank"><b>promisify</b></a>
   promisify a function with callback
 
   - **<u>param</u>**: `fn` { _Function_ }
