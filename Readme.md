@@ -10,28 +10,33 @@ A wilful node toolkit.
 ##API
 
 
-- #### <a href="lib/index.coffee?source#L7" target="_blank"><b>global.\_ (alias: l_, lodash ) </b></a>
-  lodash
-
-- #### <a href="lib/index.coffee?source#L14" target="_blank"><b>global.fs</b></a>
-  [nofs](https://github.com/ysmood/nofs)
-
-- #### <a href="lib/index.coffee?source#L27" target="_blank"><b>colors</b></a>
-  colors/safe
-
-- #### <a href="lib/index.coffee?source#L31" target="_blank"><b>kit</b></a>
-  [nokit](https://github.com/ysmood/nokit)
-
-- #### <a href="lib/index.coffee?source#L35" target="_blank"><b>path</b></a>
-  io.js path lib
-
-- #### <a href="lib/index.coffee?source#L39" target="_blank"><b>url</b></a>
-  io.js url lib
 
 
 
+- #### <a href="lib/kit.coffee?source#L43" target="_blank"><b>getRealUrl</b></a>
+  [getRealUrl description]
 
-- #### <a href="lib/kit.coffee?source#L19" target="_blank"><b>download</b></a>
+  - **<u>param</u>**: `url` { _[type]_ }
+
+    [description]
+
+  - **<u>return</u>**: { _[type]_ }
+
+    [description]
+
+  - **<u>example</u>**: 
+
+    ```
+    github
+    - git://drcupid/npm-up/lib/cli.coffee
+    - git://drcupid/npm-up/package.json#v1.2.0
+    http, https
+    - http://zeptojs.com/zepto.js
+    [dracupid's res repo](https://github.com/dracupid/res)
+    - res://config/coffeelint.json
+    ```
+
+- #### <a href="lib/kit.coffee?source#L69" target="_blank"><b>kit.download</b></a>
   Download file by url
 
   - **<u>param</u>**: `url` { _string_ }
@@ -58,29 +63,14 @@ A wilful node toolkit.
     download('http://zeptojs.com/zepto.js', './lib')
     ```
 
+- #### <a href="lib/kit.coffee?source#L98" target="_blank"><b>kit.init</b></a>
+  init `ikit.cson` file
 
+  - **<u>param</u>**: `ext` { _string='.cson'_ }
 
+    extname of ikit file
 
-
-
-
-- #### <a href="lib/promise.coffee?source#L5" target="_blank"><b>global.Promise</b></a>
-  es6 Promise Object
-
-- #### <a href="lib/promise.coffee?source#L14" target="_blank"><b>promisify</b></a>
-  promisify a function with callback
-
-  - **<u>param</u>**: `fn` { _Function_ }
-
-    Function
-
-  - **<u>param</u>**: `self` { _Object_ }
-
-    this object
-
-  - **<u>return</u>**: { _Function_ }
-
-    promisified function
+  - **<u>return</u>**: { _Promise_ }
 
 
 

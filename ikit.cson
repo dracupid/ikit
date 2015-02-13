@@ -1,0 +1,10 @@
+clone:
+    "res://config/coffeelint-strict.json": "a.json"
+
+preProcessor:
+    "a.json": (content)->
+
+create: [
+        'a'
+        'b'
+]

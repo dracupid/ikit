@@ -1,43 +1,15 @@
-require 'colors'
-colors = require 'colors/safe'
-###*
- * lodash
- * @alias l_, lodash
-###
-global._ = global.l_ = global.lodash = require 'lodash'
-
 nokit = require 'nokit'
-nokit.require 'url'
-###*
- * [nofs](https://github.com/ysmood/nofs)
-###
-global.fs = nokit.fs
+nokit.require 'colors'
 
-promise = require './promise'
+preDefined =
+    _: nokit._
+    lodash: nokit._
+    Promise: nokit.Promise
+    FS: nokit.fs
+    PATH: nokit.path
+
+nokit._.assign global, preDefined
+
 kit = require './kit'
 
-# io.js lib
-path = require './path'
-url = nokit.url
-
-module.exports = _.assign {}, kit, promise, {
-    ###*
-     * colors/safe
-    ###
-    colors
-    ###*
-     * [nokit](https://github.com/ysmood/nokit)
-    ###
-    kit: nokit
-    ###*
-     * io.js path lib
-    ###
-    path
-    ###*
-     * io.js url lib
-    ###
-    url
-
-    fs
-    _: l_
-}
+module.exports = lodash.assign {}, kit, preDefined

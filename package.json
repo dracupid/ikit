@@ -1,38 +1,30 @@
 {
-  "name": "particle",
+  "name": "ikit",
   "version": "0.0.1",
   "description": "A wilful node toolkit.",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "bin": {
+    "ikit": "bin.js"
+  },
+  "dependencies": {
+    "coffee-script": "^1.9.0",
+    "jhash": "^0.1.6",
+    "nokit": "^0.4.8"
+  },
+  "devDependencies": {
+    "nodoc": "^0.1.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "no"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dracupid/particle.git"
+    "url": "https://github.com/dracupid/ikit.git"
   },
-  "keywords": [
-    "util",
-    "kit",
-    "node"
-  ],
-  "files": [
-    "dist"
-  ],
   "author": "Dracupid",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dracupid/particle/issues"
+    "url": "https://github.com/dracupid/ikit/issues"
   },
-  "homepage": "https://github.com/dracupid/particle",
-  "dependencies": {
-    "colors": "^1.0.3",
-    "es6-promise": "^2.0.1",
-    "lodash": "^3.1.0",
-    "nokit": "^0.4.5"
-  },
-  "devDependencies": {
-    "coffee-script": "^1.9.0",
-    "nodoc": "^0.1.4"
-  }
+  "homepage": "https://github.com/dracupid/ikit"
 }
