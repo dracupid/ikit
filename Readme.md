@@ -13,10 +13,10 @@ A wilful node toolkit.
 
 
 
-- #### <a href="lib/kit.coffee?source#L52" target="_blank"><b>getRealUrl</b></a>
-  [getRealUrl description]
+- #### <a href="lib/kit.coffee?source#L40" target="_blank"><b>kit.hashFile</b></a>
+  [hashFile description]
 
-  - **<u>param</u>**: `url` { _[type]_ }
+  - **<u>param</u>**: `fileName` { _[type]_ }
 
     [description]
 
@@ -24,17 +24,7 @@ A wilful node toolkit.
 
     [description]
 
-  - **<u>example</u>**: 
-
-    github
-    - git://drcupid/npm-up/lib/cli.coffee
-    - git://drcupid/npm-up/package.json#v1.2.0
-    http, https
-    - http://zeptojs.com/zepto.js
-    [dracupid's res repo](https://github.com/dracupid/res)
-    - res://config/coffeelint.json
-
-- #### <a href="lib/kit.coffee?source#L84" target="_blank"><b>kit.download</b></a>
+- #### <a href="lib/kit.coffee?source#L90" target="_blank"><b>kit.download</b></a>
   Download file by url
 
   - **<u>param</u>**: `url` { _string_ }
@@ -61,7 +51,7 @@ A wilful node toolkit.
     download('http://zeptojs.com/zepto.js', './lib')
     ```
 
-- #### <a href="lib/kit.coffee?source#L111" target="_blank"><b>kit.init</b></a>
+- #### <a href="lib/kit.coffee?source#L117" target="_blank"><b>kit.init</b></a>
   init `ikit.cson` file
 
   - **<u>param</u>**: `ext` { _string='.cson'_ }
@@ -69,6 +59,24 @@ A wilful node toolkit.
     extname of ikit file
 
   - **<u>return</u>**: { _Promise_ }
+
+- #### <a href="lib/kit.coffee?source#L137" target="_blank"><b>kit.clone</b></a>
+  [clone description]
+
+  - **<u>param</u>**: `update` { _[type]=false_ }
+
+    [description]
+
+  - **<u>return</u>**: { _[type]_ }
+
+    [description]
+
+- #### <a href="lib/kit.coffee?source#L158" target="_blank"><b>kit.pull</b></a>
+  [pull description]
+
+  - **<u>return</u>**: { _[type]_ }
+
+    [description]
 
 
 

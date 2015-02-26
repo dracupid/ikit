@@ -32,6 +32,11 @@ getResHash = (version = 'master') ->
     .then (json) ->
         _resHash[version] = JSON.parse json
 
+###*
+ * [hashFile description]
+ * @param  {[type]} fileName [description]
+ * @return {[type]}          [description]
+###
 kit.hashFile = (fileName) ->
     FS.readFile fileName
     .then jhash.hash.bind jhash
@@ -40,6 +45,7 @@ kit.hashFile = (fileName) ->
  * [getRealUrl description]
  * @param  {[type]} url [description]
  * @return {[type]}     [description]
+ * @private
  * @example
  * github
  * - git://drcupid/npm-up/lib/cli.coffee
@@ -123,6 +129,11 @@ kit.init = (ext = '.cson') ->
     else
         FS.copy defaultFile, PATH.join process.cwd(), name
 
+###*
+ * [clone description]
+ * @param  {[type]=false} update [description]
+ * @return {[type]}        [description]
+###
 kit.clone = (update = false) ->
     if arguments.length > 1
         return kit.download.call @, arguments
@@ -140,7 +151,13 @@ kit.clone = (update = false) ->
             for url, fpath of urls
                 promise.push getRealUrl(url).then (url) -> kit.download url, fpath
         Promise.all promise
-
+###*
+ * [pull description]
+ * @return {[type]}    [description]
+###
 kit.pull = kit.clone.bind null, true
 
 module.exports = kit
+
+
+# TODO: nodoc: noprefix
