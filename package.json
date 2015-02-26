@@ -7,12 +7,13 @@
     "ikit": "bin.js"
   },
   "dependencies": {
-    "coffee-script": "^1.9.0",
-    "jhash": "^0.1.6",
-    "nokit": "^0.4.8"
+    "coffee-script": "^1.9.1",
+    "jhash": "0.1.6",
+    "nokit": "0.5.4"
   },
   "devDependencies": {
-    "nodoc": "^0.1.4"
+    "coffeelint": "^1.9.2",
+    "nodoc": "^0.1.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
