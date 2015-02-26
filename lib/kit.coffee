@@ -1,11 +1,12 @@
 nokit = require 'nokit'
-jhash = kit.require 'jhash'
+jhash = nokit.require 'jhash'
 
 kit = {}
+_resHash = {}
 
 coffee = require 'coffee-script'
 
-require.extensions['.cson'] = (module, filename)->
+require.extensions['.cson'] = (module, filename) ->
     cson = '' + FS.readFileSync filename
     cson = "module.exports =\n" + cson.replace /\n/g, '\n\t'
     answer = coffee.compile cson, filename
@@ -17,20 +18,29 @@ ikitRc = do ->
     catch
         {}
 
-isDir = (fpath)->
+isDir = (fpath) ->
     fpath[fpath.length - 1] is '/'
 
-githubUrl = (user, repo, fpath, version)->
+githubUrl = (user, repo, fpath, version) ->
     version or version = 'master'
     "https://raw.githubusercontent.com/#{user}/#{repo}/#{version}/#{fpath}"
 
+getResHash = (version = 'master') ->
+    if _resHash[version] then return Promise.resolve resHash[version]
+
+    nokit.request "https://raw.githubusercontent.com/dracupid/res/#{version}/hash.json"
+    .then (json) ->
+        _resHash[version] = JSON.parse json
+
+kit.hashFile = (fileName) ->
+    FS.readFile fileName
+    .then jhash.hash.bind jhash
 
 ###*
  * [getRealUrl description]
  * @param  {[type]} url [description]
  * @return {[type]}     [description]
  * @example
- * ```
  * github
  * - git://drcupid/npm-up/lib/cli.coffee
  * - git://drcupid/npm-up/package.json#v1.2.0
@@ -38,20 +48,25 @@ githubUrl = (user, repo, fpath, version)->
  * - http://zeptojs.com/zepto.js
  * [dracupid's res repo](https://github.com/dracupid/res)
  * - res://config/coffeelint.json
- * ```
 ###
-getRealUrl = (url)->
+getRealUrl = (url, isUpdate = false) ->
     url = url.trim()
     [protocol, upath, version] = url.split /:\/\/|#/
 
     switch protocol
         when 'http', 'https'
-            return url
+            Promise.resolve url
         when 'git'
             [user, repo, fpath...] = upath.split '/'
-            return githubUrl user, repo, fpath.join('/'), version
+            Promise.resolve githubUrl user, repo, fpath.join('/'), version
         when 'res'
-            return githubUrl 'dracupid', 'res', upath, version
+            Promise.all getResHash(version), kit.hashFile(upath)
+            .then (hashMap, fileHash) ->
+                latestHash = hashMap[upath]
+                if latestHash and latestHash is fileHash
+                    null
+                else
+                    githubUrl 'dracupid', 'res', upath, version
 
 
 ###*
@@ -66,13 +81,15 @@ getRealUrl = (url)->
  * download('http://zeptojs.com/zepto.js', './lib')
  * ```
 ###
-kit.download = (url, fpath, opts = {})->
+kit.download = (url, fpath, opts = {}) ->
+    if not url then return Promise.resolve()
+
     if lodash.isObject fpath
         opts = fpath
         fpath = null
 
     lodash.defaults opts,
-        processor: (a)-> a
+        processor: (a) -> a
 
     fileName = PATH.basename url
 
@@ -82,20 +99,16 @@ kit.download = (url, fpath, opts = {})->
         fpath = PATH.join fpath, fileName
 
     nokit.request url
-    .then (data)->
+    .then (data) ->
         FS.outputFile fpath, opts.processor data
         fpath
-
-kit.hashFile = (fileName)->
-    FS.readFile fileName
-    .then jhash.hash.bind jhash
 
 ###*
  * init `ikit.cson` file
  * @param  {string='.cson'} ext extname of ikit file
  * @return {Promise}
 ###
-kit.init = (ext = '.cson')->
+kit.init = (ext = '.cson') ->
     ext[0] == '.' or ext = '.' + ext
 
     if FS.existsSync 'ikit' + ext
@@ -110,24 +123,24 @@ kit.init = (ext = '.cson')->
     else
         FS.copy defaultFile, PATH.join process.cwd(), name
 
-kit.clone = ()->
+kit.clone = (update = false) ->
     if arguments.length > 1
         return kit.download.call @, arguments
 
     FS.readJSON 'ikit.json'
-    .then (rc)->
+    .then (rc) ->
         promise = []
         urls = rc.clone
         if Array.isArray urls
-            urls.forEach (url)->
-                promise.push kit.download getRealUrl(url)
+            urls.forEach (url) ->
+                promise.push getRealUrl(url).then kit.download
         else if typeof urls is 'string'
-            promise.push kit.download getRealUrl(urls)
+            promise.push getRealUrl(url).then kit.download
         else
             for url, fpath of urls
-                promise.push kit.download getRealUrl(url), fpath
+                promise.push getRealUrl(url).then (url) -> kit.download url, fpath
         Promise.all promise
 
-kit.pull = ()->
+kit.pull = kit.clone.bind null, true
 
 module.exports = kit

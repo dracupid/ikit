@@ -13,7 +13,7 @@ A wilful node toolkit.
 
 
 
-- #### <a href="lib/kit.coffee?source#L43" target="_blank"><b>getRealUrl</b></a>
+- #### <a href="lib/kit.coffee?source#L52" target="_blank"><b>getRealUrl</b></a>
   [getRealUrl description]
 
   - **<u>param</u>**: `url` { _[type]_ }
@@ -26,7 +26,6 @@ A wilful node toolkit.
 
   - **<u>example</u>**: 
 
-    ```
     github
     - git://drcupid/npm-up/lib/cli.coffee
     - git://drcupid/npm-up/package.json#v1.2.0
@@ -34,9 +33,8 @@ A wilful node toolkit.
     - http://zeptojs.com/zepto.js
     [dracupid's res repo](https://github.com/dracupid/res)
     - res://config/coffeelint.json
-    ```
 
-- #### <a href="lib/kit.coffee?source#L69" target="_blank"><b>kit.download</b></a>
+- #### <a href="lib/kit.coffee?source#L84" target="_blank"><b>kit.download</b></a>
   Download file by url
 
   - **<u>param</u>**: `url` { _string_ }
@@ -63,7 +61,7 @@ A wilful node toolkit.
     download('http://zeptojs.com/zepto.js', './lib')
     ```
 
-- #### <a href="lib/kit.coffee?source#L98" target="_blank"><b>kit.init</b></a>
+- #### <a href="lib/kit.coffee?source#L111" target="_blank"><b>kit.init</b></a>
   init `ikit.cson` file
 
   - **<u>param</u>**: `ext` { _string='.cson'_ }
