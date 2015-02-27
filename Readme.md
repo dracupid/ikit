@@ -13,7 +13,7 @@ A wilful node toolkit.
 
 
 
-- #### <a href="lib/kit.coffee?source#L40" target="_blank"><b>kit.hashFile</b></a>
+- #### <a href="lib/kit.coffee?source#L40" target="_blank"><b>hashFile</b></a>
   [hashFile description]
 
   - **<u>param</u>**: `fileName` { _[type]_ }
@@ -24,7 +24,7 @@ A wilful node toolkit.
 
     [description]
 
-- #### <a href="lib/kit.coffee?source#L90" target="_blank"><b>kit.download</b></a>
+- #### <a href="lib/kit.coffee?source#L90" target="_blank"><b>download</b></a>
   Download file by url
 
   - **<u>param</u>**: `url` { _string_ }
@@ -51,7 +51,7 @@ A wilful node toolkit.
     download('http://zeptojs.com/zepto.js', './lib')
     ```
 
-- #### <a href="lib/kit.coffee?source#L117" target="_blank"><b>kit.init</b></a>
+- #### <a href="lib/kit.coffee?source#L117" target="_blank"><b>init</b></a>
   init `ikit.cson` file
 
   - **<u>param</u>**: `ext` { _string='.cson'_ }
@@ -60,7 +60,7 @@ A wilful node toolkit.
 
   - **<u>return</u>**: { _Promise_ }
 
-- #### <a href="lib/kit.coffee?source#L137" target="_blank"><b>kit.clone</b></a>
+- #### <a href="lib/kit.coffee?source#L137" target="_blank"><b>clone</b></a>
   [clone description]
 
   - **<u>param</u>**: `update` { _[type]=false_ }
@@ -71,7 +71,7 @@ A wilful node toolkit.
 
     [description]
 
-- #### <a href="lib/kit.coffee?source#L158" target="_blank"><b>kit.pull</b></a>
+- #### <a href="lib/kit.coffee?source#L158" target="_blank"><b>pull</b></a>
   [pull description]
 
   - **<u>return</u>**: { _[type]_ }

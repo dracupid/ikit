@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "coffeelint": "^1.9.2",
-    "nodoc": "^0.1.6"
+    "nodoc": "^0.1.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
